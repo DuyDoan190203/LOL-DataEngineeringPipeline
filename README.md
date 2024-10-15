@@ -32,3 +32,11 @@ Dashboard: Looker Studio.
 
 Pipelines running in Mage AI in a Mage Docker container.
 ![alt text](<screenshots_from_local/Screenshot 2024-10-15 142835.png>)
+
+
+## Mage is deployed on Google Cloud using Terraform.
+ 
+## Dashboard:
+![alt text](screenshots_from_local/LOL-rank_analysis.png)
+---------------------------------------------------------
+![alt text](screenshots_from_local/Lol-rank-games_analysis.png)
