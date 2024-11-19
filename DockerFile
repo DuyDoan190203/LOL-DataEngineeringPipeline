@@ -1,0 +1,22 @@
+FROM python:3.8-slim
+
+WORKDIR /app
+
+COPY requirements.txt .
+
+RUN pip install --no-cache-dir -r requirements.txt
+
+RUN apt-get update && apt-get install -y openjdk-11-jdk && apt-get clean
+
+ENV JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+
+RUN wget -qO- https://archive.apache.org/dist/spark/spark-3.1.2/spark-3.1.2-bin-hadoop3.2.tgz | tar xvz -C /opt/ && \
+    ln -s /opt/spark-3.1.2-bin-hadoop3.2 /opt/spark
+
+ENV SPARK_HOME=/opt/spark
+
+ENV PATH=$SPARK_HOME/bin:$PATH
+
+COPY . .
+
+ENTRYPOINT ["python", "mage_pipe_lines/main.py"]

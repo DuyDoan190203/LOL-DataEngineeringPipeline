@@ -75,4 +75,10 @@ def load_data_from_api(*args, **kwargs):
         't2_ban5': 'int64'
     }
 
-    return pd.read_csv(url, sep=",", compression="gzip", dtype=lol_rank_dtypes)
+    try:
+        # Read the CSV file from the URL
+        logger.info(f"Downloading data from {url}")
+        return pd.read_csv(url, sep=",", compression="gzip", dtype=lol_rank_dtypes)
+    except Exception as e:
+        logger.error(f"Error loading data from API: {e}")
+        return pd.DataFrame()  # Return an empty DataFrame in case of error

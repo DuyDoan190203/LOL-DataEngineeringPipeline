@@ -1,0 +1,44 @@
+version: 2
+
+models:
+  - name: lol_rank_games
+    description: "Transformed data for LOL rank games"
+    columns:
+      - name: gameId
+        description: "Unique identifier for the game"
+      - name: creationTime
+        description: "Timestamp of game creation"
+      - name: gameDuration
+        description: "Duration of the game in seconds"
+      - name: seasonId
+        description: "Season identifier"
+      - name: winner
+        description: "Winning team (1 or 2)"
+      - name: firstBlood
+        description: "First blood indicator"
+      - name: firstTower
+        description: "First tower indicator"
+      - name: firstInhibitor
+        description: "First inhibitor indicator"
+      - name: firstBaron
+        description: "First baron indicator"
+      - name: firstDragon
+        description: "First dragon indicator"
+      - name: game_length_category
+        description: "Category of game length (short, medium, long)"
+      - name: t1_objective_control
+        description: "Sum of objectives controlled by team 1"
+
+tests:
+  - name: lol_rank_games
+    columns:
+      - name: gameId
+        tests:
+          - not_null
+          - unique
+      - name: creationTime
+        tests:
+          - not_null
+      - name: firstBaron
+        tests:
+          - not_null

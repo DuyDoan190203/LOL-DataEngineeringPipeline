@@ -33,6 +33,10 @@ Dashboard: Looker Studio.
 Pipelines running in Mage AI in a Mage Docker container.
 ![alt text](<screenshots_from_local/Screenshot 2024-10-15 142835.png>)
 
+## Data Warehouse Bigquery
+
+![alt text](<screenshots_from_local/data_warehouse.png>)
+
 
 ## Mage is deployed on Google Cloud using Terraform.
  

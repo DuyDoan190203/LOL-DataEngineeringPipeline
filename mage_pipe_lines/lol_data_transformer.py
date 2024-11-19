@@ -7,10 +7,8 @@ if 'test' not in globals():
 
 @transformer
 def transform(data, *args, **kwargs):
-    # Convert 'creationTime' to datetime
     data['creationTime'] = pd.to_datetime(data['creationTime'], unit='ms')
 
-    # Feature engineering: Game length category
     def categorize_game_duration(duration):
         if duration < 1500:
             return 'short'
@@ -20,12 +18,13 @@ def transform(data, *args, **kwargs):
             return 'long'
     
     data['game_length_category'] = data['gameDuration'].apply(categorize_game_duration)
-
-    # Objective control (team 1 example)
     data['t1_objective_control'] = data[['firstBlood', 'firstTower', 'firstInhibitor', 'firstBaron', 'firstDragon']].sum(axis=1)
-
-    # Remove games where no Barons were killed
     filtered_data = data[data['firstBaron'] > 0]
+
+     # Add More data validation
+    assert filtered_data['gameId'].notnull().all(), "Null values found in 'gameId'"
+    assert filtered_data['creationTime'].notnull().all(), "Null values found in 'creationTime'"
+    assert filtered_data['firstBaron'].notnull().all(), "Null values found in 'firstBaron'"
 
     return filtered_data
 
