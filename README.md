@@ -1,4 +1,4 @@
-# Simple ETL data pipeline for LOL rank matches
+# ETL data pipeline for LOL rank matches
 
 ![alt text](screenshots_from_local/EGS_LeagueofLegends_RiotGames_S1_2560x1440-80471666c140f790f28dff68d72c384b.webp)
 
