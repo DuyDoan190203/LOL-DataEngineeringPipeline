@@ -20,7 +20,7 @@ Data Warehouse: Google Big Query
 
 Data Lake: Google Cloud Storage
 
-Batch processing: SQL, Python.
+Batch processing: SQL, Python, Spark Apache.
 
 Dashboard: Looker Studio.
 
